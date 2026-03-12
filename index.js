@@ -4,7 +4,7 @@ const Product = require('./models/product.model.js')
 const productRoute=require('./routes/product.route.js')
 
 const app = express()
-
+var myUrl=process.env.URL
 
 //middleware
 app.use(express.json())
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
     res.send("Sonaksha,Oliver")
 })
 
-mongoose.connect("mongodb+srv://sameethsoorju2_db_user:lXCcMRabFeooAolb@backenddb.siw4j4a.mongodb.net/Node-API?appName=BackendDB")
+mongoose.connect(myUrl)
     .then(() => {
         console.log("Connected to Database")
         app.listen(3000, () => {
