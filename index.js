@@ -7,6 +7,7 @@ require('dotenv').config()
 const app = express()
 var myUrl=process.env.URL
 
+
 //middleware
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
@@ -22,7 +23,7 @@ mongoose.connect(myUrl)
     .then(() => {
         console.log("Connected to Database")
         app.listen(3000, () => {
-            console.log('Server is running on port 3000')
+            console.log(`Server is running on port ${3000}`)
         });
     })
     .catch(() => {
