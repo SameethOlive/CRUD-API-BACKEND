@@ -2,10 +2,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Product = require('./models/product.model.js')
 const productRoute=require('./routes/product.route.js')
-require(`dotenv`).config()
+require('dotenv').config()
 
 const app = express()
 var myUrl=process.env.URL
+var myPort=process.env.port
+
 
 
 
@@ -21,8 +23,8 @@ app.use('/api/products',productRoute)
 mongoose.connect(myUrl)
     .then(() => {
         console.log("Connected to Database")
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`)
+        app.listen(myPort, () => {
+            console.log(`Server is running on port ${myPort}`)
         });
     })
     .catch(() => {
